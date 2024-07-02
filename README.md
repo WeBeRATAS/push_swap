@@ -24,9 +24,9 @@ Metodologia del programa Push_swap
 		//Comprueba si hay 2 números
 			//Si es así, simplemente intercambia los números
 		//Comprobar si hay 3 números
-			//Si es así, implementa nuestro sencillo algoritmo `sort three
+			//Si es así, implementa nuestro sencillo algoritmo sort three
 		//Comprueba si la pila tiene más de 3 números
-			//Si es así, implanta nuestro algoritmo Turk
+			//Si es así, implanta nuestro algoritmo Turco (buscar referencias en internet) Hace el orden buscando el medio del stack y trabaja rotando 			con el valor que nos va definiendo.
 
 //Limpia la pila
 
