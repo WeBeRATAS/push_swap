@@ -6,13 +6,13 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:36:17 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/13 17:30:55 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/13 17:52:23 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	free_error(t_stack_node **stack)
+static void	stack_free(t_stack_node **stack)
 {
 	t_stack_node	*tmp;
 	t_stack_node	*current;

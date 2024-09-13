@@ -6,7 +6,7 @@
 /*   By: rbuitrag <rbuitrag@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 16:18:09 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/01/29 13:51:52 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/13 17:43:43 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	if (!s1 || !s2)
 		return (NULL);
 	new = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!new)
+	if (!new)	
 		return (NULL);
 	i = 0;
 	while (s1[i])
