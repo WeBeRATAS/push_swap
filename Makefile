@@ -6,7 +6,7 @@
 #    By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/27 09:53:34 by rbuitrag          #+#    #+#              #
-#    Updated: 2024/09/03 17:07:33 by rbuitrag         ###   ########.fr        #
+#    Updated: 2024/09/13 11:47:41 by rbuitrag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ all: library $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
 
-%.o: %.c $(HEADER)
+%.o: %.c $(HEADER) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
 library:
