@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:36:17 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/06 11:46:51 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/13 17:30:55 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,22 @@
 static void	free_error(t_stack_node **stack)
 {
 	t_stack_node	*tmp;
+	t_stack_node	*current;
 
+	if (!stack)
+		return ;
+	current = *stack;
 	while (*stack)
 	{
 		tmp = *stack;
 		*stack = (*stack)->next;
 		free(tmp);
 	}
-	write(2, "Error\n", 6);//cambiar por put_str_Fd(manage error)
-	exit(1);
+	*stack = NULL;
+	put_error();
 }
 
-static long	ft_atol(const char *str)
+long	ft_atol(const char *str)
 {
 	long	res;
 	int		sign;
@@ -58,11 +62,6 @@ static void	add_node(t_stack_node **stack, int n)
 	if (!new)
 		free_error(stack);
 	new->num = n;
-	new->index = 0;
-	new->push_cost = 0;
-	new->above_median = false;
-	new->cheapest = false;
-	new->target_node = NULL;
 	new->next = NULL;
 	if (!*stack)
 	{
@@ -71,7 +70,7 @@ static void	add_node(t_stack_node **stack, int n)
 	}
 	else
 	{
-		last = *stack;
+		last = last_node(*stack);
 		while (last->next)
 			last = last->next;
 		last->next = new;
@@ -79,7 +78,7 @@ static void	add_node(t_stack_node **stack, int n)
 	}
 }
 
-void	init_stack_a(t_stack_node **a, char **argv)
+void	stack_init_a(t_stack_node **a, char **argv)
 {
 	long	n;
 	int		i;

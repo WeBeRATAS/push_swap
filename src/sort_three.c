@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:17:47 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/06 11:19:55 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/13 17:32:42 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	find_max(t_stack_node *a)
 {
 	t_stack_node	*max;
 
+	if (!a)
+		put_error();
 	max = a;
 	while (max)
 	{
@@ -30,6 +32,8 @@ void	sort_three(t_stack_node **a)
 {
 	t_stack_node	*biggest_node;
 
+	if (!a || !*a)
+		put_error();
 	biggest_node = find_max(*a);
 	if (biggest_node == *a)
 		ra(a, false);

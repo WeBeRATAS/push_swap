@@ -24,7 +24,7 @@
 
 typedef struct s_stack_node
 {
-	int					num;
+	long				num;
 	int					index;
 	int					push_cost;
 	bool				above_median;
@@ -33,6 +33,30 @@ typedef struct s_stack_node
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
 }	t_stack_node;
-//Handle
-//Stacts initiation
+
+
+// Stack functions
+bool			is_sorted(t_stack_node *stack);
+int				stack_len(t_stack_node *stack);
+t_stack_node	*find_min(t_stack_node *stack);
+t_stack_node	find_cheapest(t_stack_node *stack);
+
+//Handle arguments
+void		checks_args(int ac, char **av);
+int			isduplicate(int i, char **av);
+void		check_limits(long n);
+void		put_error(void);
+
+// Stack operations
+int		find_max(t_stack_node *a);
+void	sort_three(t_stack_node **a);
+
+
+//Stacks initiation
+void	stack_init_a(t_stack_node **stack, char **av);
+void	stack_init_b(t_stack_node **stack);
+void 	free_error(t_stack_node **stack);
+void	add_node(t_stack_node **stack, int n);
+void	ft_atol(const char *str);
+
 #endif

@@ -25,6 +25,19 @@ bool	is_sorted(t_stack_node *stack)
 	return (true);
 }
 
+t_stack_node	*last_node(t_stack_node *upper)
+{
+	if (!upper)
+		return (NULL);
+	while (upper)
+	{
+		if (!upper->next)
+			return (upper);
+		upper = upper->next;
+	}
+	return (upper);
+}
+
 static int	stack_len(t_stack_node *stack)
 {
 	int	len;
@@ -48,9 +61,28 @@ t_stack_node	*find_min(t_stack_node *stack)
 	min = LONG_MAX;
 	while (stack)
 	{
-		if (stack->num < min->num)
+		if (stack->num < min)
+		{
 			min = stack->num;
-		min_node = stack;
+			min_node = stack;
+		}
+		stack = stack->next;
 	}
 	return (min_node);
+}
+
+t_stack_node	find_cheapest(t_stack_node *stack)
+{
+	t_stack_node	*cheapest;
+	t_stack_node	*current;
+
+	cheapest = find_min(stack);
+	current = stack;
+	while (current)
+	{
+		if (current->push_cost < cheapest->push_cost)
+			cheapest = current;
+		current = current->next;
+	}
+	return (*cheapest);
 }

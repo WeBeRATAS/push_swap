@@ -22,7 +22,10 @@ int	main(int ac, char **av)
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (1);
 	else if (ac == 2)
-		av = ft_split_swap(av[1], ' ');
+	{
+		checks_args(ac, av);
+		av = ft_strjoin(av[1], ' ');
+	}
 	stack_init_a(&a, av + 1);
 	if (!is_sorted(a))
 	{
@@ -33,7 +36,5 @@ int	main(int ac, char **av)
 		else
 			sort_stacks(&a, &b);
 	}
-	stack_free(&a);
-	stack_free(&b);
-	return (0);
+	return (stack_free(&a), 0);
 }
