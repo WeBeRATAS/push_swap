@@ -63,6 +63,8 @@ Metodologia del programa Push_swap
     Complejidad temporal: Utilizando Big O, se observa el mejor, el peor y la media de los casos en que se completa un algoritmo.
     Complejidad espacial: Utilizando Big 0, se observa la cantidad de espacio de memoria que utiliza un algoritmo.
 
+    https://miro.medium.com/v2/resize:fit:1400/format:webp/1*rXKk8juFHQaLzI-uJyEVog.png
+
 
 
 
