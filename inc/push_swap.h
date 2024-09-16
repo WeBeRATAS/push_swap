@@ -41,7 +41,7 @@ t_stack_node	*find_min(t_stack_node *stack);
 t_stack_node	find_cheapest(t_stack_node *stack);
 
 //Handle arguments
-void			checks_args(int ac, char **av);
+void			check_args(int ac, char **av);
 int				isduplicate(int i, char **av);
 void			check_limits(long n);
 void			put_error(void);
@@ -55,6 +55,6 @@ void			stack_init_a(t_stack_node **stack, char **av);
 void			stack_init_b(t_stack_node **stack);
 void			stack_free(t_stack_node **stack);
 void			add_node(t_stack_node **stack, int n);
-void			ft_atol(const char *str);
+int				ft_atol(const char *str);
 
 #endif

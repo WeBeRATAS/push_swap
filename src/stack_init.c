@@ -30,7 +30,7 @@ static void	stack_free(t_stack_node **stack)
 	put_error();
 }
 
-long	ft_atol(const char *str)
+int	ft_atol(const char *str)
 {
 	long	res;
 	int		sign;

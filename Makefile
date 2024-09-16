@@ -6,7 +6,7 @@
 #    By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/27 09:53:34 by rbuitrag          #+#    #+#              #
-#    Updated: 2024/09/13 11:47:41 by rbuitrag         ###   ########.fr        #
+#    Updated: 2024/09/16 16:43:31 by rbuitrag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ LIBFT = libft/libft.a
 PRINTF = printf/libftprintf.a
 
 CFILES =  main.c\
+		  check_args.c\
           sort_stacks.c\
           sort_three.c\
           split.c\

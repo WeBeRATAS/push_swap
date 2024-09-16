@@ -20,11 +20,11 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
-		return (1);
-	else if (ac == 2)
+		put_error();
+	else if (ac >= 2)
 	{
-		checks_args(ac, av);
 		av = ft_split(av[1], ' ');
+		check_args(ac, av);
 	}
 	stack_init_a(&a, av + 1);
 	if (!is_sorted(a))
