@@ -78,3 +78,21 @@ rra: rotar inversamente a - desplaza hacia abajo todos los elementos de la pila 
 rrb: rotación inversa b: desplaza hacia abajo todos los elementos de la pila b en 1. El último elemento se convierte en el primero.
 rrr: rray rrbal mismo tiempo.
 
+El proyecto
+Crea dos programas: checker y push_swap.
+=========================================
+
+El checker programa lee una lista aleatoria de números enteros de la entrada estándar, los almacena y comprueba si están ordenados.
+
+El push_swap programa calcula los movimientos para ordenar los números enteros ( empujarlos, sacarlos, intercambiarlos y rotarlos entre la pila a y la pila b ) y muestra esas direcciones en la salida estándar.
+
+Puede ingresar push_swap a checker, y checker verificará que push_swaplas instrucciones de se hayan realizado correctamente.
+
+Ambos programas deben analizar obligatoriamente la entrada en busca de errores, incluidas cadenas vacías, ausencia de parámetros, parámetros no numéricos, duplicados e instrucciones no válidas o inexistentes.
+
+Push_Swap debe cumplir con la Norma 42.
+Está estrictamente prohibido usar funciones normales . libc Sin embargo, los estudiantes pueden usar: write, read, malloc, free, exit. No debe tener fugas de memoria. Los errores deben manejarse con cuidado.
+De ninguna manera puede cerrarse de manera inesperada (error de segmentación, error de bus, doble liberación, etc.).
+
+
+
