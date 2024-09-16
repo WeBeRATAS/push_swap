@@ -62,3 +62,9 @@ Metodologia del programa Push_swap
     Notación asintótica: Uso de notaciones matemáticas como Big O, Omega y Theta para analizar el tiempo de ejecución de un algoritmo a medida que el problema aumenta de tamaño.
     Complejidad temporal: Utilizando Big O, se observa el mejor, el peor y la media de los casos en que se completa un algoritmo.
     Complejidad espacial: Utilizando Big 0, se observa la cantidad de espacio de memoria que utiliza un algoritmo.
+
+
+
+
+
+
