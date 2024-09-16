@@ -71,7 +71,7 @@ t_stack_node	*find_min(t_stack_node *stack)
 	return (min_node);
 }
 
-t_stack_node	find_cheapest(t_stack_node *stack)
+t_stack_node	*find_cheapest(t_stack_node *stack)
 {
 	t_stack_node	*cheapest;
 	t_stack_node	*current;
@@ -84,5 +84,5 @@ t_stack_node	find_cheapest(t_stack_node *stack)
 			cheapest = current;
 		current = current->next;
 	}
-	return (*cheapest);
+	return (cheapest);
 }

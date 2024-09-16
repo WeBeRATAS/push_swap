@@ -6,13 +6,13 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:17:47 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/13 17:32:42 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/16 18:42:12 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static int	find_max(t_stack_node *a)
+t_stack_node	*find_max(t_stack_node *a)
 {
 	t_stack_node	*max;
 

@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:32:49 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/13 17:34:04 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/16 18:36:57 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,9 @@ void	check_args(int ac, char **av)
 	{
 		if (av[i][0] == '\0')
 			put_error();
-		ft_isadigit(av[i]);
+		ft_isdigit(ft_atol(av[i]));
 		isduplicate(i, av);
 		check_limits(ft_atol(av[i]));
 		i++;
 	}
-	return (0);
 }
