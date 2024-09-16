@@ -63,4 +63,18 @@ Metodologia del programa Push_swap
     Complejidad temporal: Utilizando Big O, se observa el mejor, el peor y la media de los casos en que se completa un algoritmo.
     Complejidad espacial: Utilizando Big 0, se observa la cantidad de espacio de memoria que utiliza un algoritmo.
 
+Solo se permiten estos movimientos:
+=======================================
+
+sa: swap a - intercambia los primeros 2 elementos en la parte superior de la pila a. No haga nada si solo hay uno o ningún elemento).
+sb: swap b - intercambia los primeros 2 elementos en la parte superior de la pila b. No haga nada si solo hay uno o ningún elemento).
+ss: say sbal mismo tiempo.
+pa: push a - toma el primer elemento en la parte superior de b y lo coloca en la parte superior de a. No haga nada si b está vacío.
+pb: push b - toma el primer elemento en la parte superior de a y lo coloca en la parte superior de b. No hace nada si a está vacío.
+ra: rotar a - desplaza hacia arriba todos los elementos de la pila a en 1. El primer elemento se convierte en el último.
+rb: rotar b - desplaza hacia arriba todos los elementos de la pila b en 1. El primer elemento se convierte en el último.
+rr: ray rbal mismo tiempo.
+rra: rotar inversamente a - desplaza hacia abajo todos los elementos de la pila a en 1. El último elemento se convierte en el primero.
+rrb: rotación inversa b: desplaza hacia abajo todos los elementos de la pila b en 1. El último elemento se convierte en el primero.
+rrr: rray rrbal mismo tiempo.
 
