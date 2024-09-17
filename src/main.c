@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:52:03 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/16 20:14:02 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/17 18:16:24 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
-		put_error();
-	else if (ac >= 2)
 	{
-		av = ft_split(av[1], ' ');
-		check_args(ac, av);
+		if (ac == 2)
+			put_error();
+		return (1);
 	}
+	av = ft_split(av[1], ' ');
+	check_args(ac, av);
 	stack_init_a(&a, av + 1);
 	if (!is_sorted(a))
 	{
