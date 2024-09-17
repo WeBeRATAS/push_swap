@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:25:39 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/17 10:33:39 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/17 18:43:45 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,15 @@ int	stack_len(t_stack_node *stack)
 	int	len;
 
 	len = 0;
+	if (!stack)
+		put_error();
 	while (stack)
 	{
 		stack = stack->next;
 		len += 1;
 	}
-	return (len);
+	printf("La len stack es: %d\n", len);
+	return (len + 1);
 }
 
 t_stack_node	*find_min(t_stack_node *stack)

@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:36:17 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/17 17:37:05 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/17 19:01:55 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	add_node(t_stack_node **stack, int n)
 	t_stack_node	*new;
 	t_stack_node	*last;
 
-	if (!stack)
+	if (stack == NULL)
 		return ;
 	new = malloc(sizeof(t_stack_node));
 	if (!new)
@@ -54,16 +54,19 @@ void	add_node(t_stack_node **stack, int n)
 	}
 }
 
-void	stack_init_a(t_stack_node **a, char **argv)
+void	stack_init_a(t_stack_node **a, char **av)
 {
-	long	n;
-	int		i;
+	long			n;
+	int				i;
+	t_stack_node	*tmp;
 
 	i = 0;
-	while (argv[i])
+	while (av[i])
 	{
-		n = ft_atol(argv[i]);
+		n = ft_atol(av[i]);
 		add_node(a, (int)n);
 		i++;
 	}
+	tmp = *a;
+	(void)tmp;
 }
