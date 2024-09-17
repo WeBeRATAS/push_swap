@@ -6,20 +6,18 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:36:17 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/13 17:52:23 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/17 17:37:05 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	stack_free(t_stack_node **stack)
+void	stack_free(t_stack_node **stack)
 {
 	t_stack_node	*tmp;
-	t_stack_node	*current;
 
 	if (!stack)
 		return ;
-	current = *stack;
 	while (*stack)
 	{
 		tmp = *stack;
@@ -27,50 +25,28 @@ static void	stack_free(t_stack_node **stack)
 		free(tmp);
 	}
 	*stack = NULL;
-	put_error();
 }
 
-int	ft_atol(const char *str)
-{
-	long	res;
-	int		sign;
-
-	res = 0;
-	sign = 1;
-	while (*str == ' ' || *str == '\t' || *str == '\n' \
-			|| *str == '\v' || *str == '\f' || *str == '\r')
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign = -1;
-		str++;
-	}
-	while (ft_isdigit(*str))
-		res = res * 10 + (*str++ - '0');
-	return (res * sign);
-}
-
-static void	add_node(t_stack_node **stack, int n)
+void	add_node(t_stack_node **stack, int n)
 {
 	t_stack_node	*new;
 	t_stack_node	*last;
 
 	if (!stack)
-		free_error(stack);
-	new = (t_stack_node *)malloc(sizeof(t_stack_node));
+		return ;
+	new = malloc(sizeof(t_stack_node));
 	if (!new)
-		free_error(stack);
+		exit(EXIT_FAILURE);
 	new->num = n;
 	new->next = NULL;
-	if (!*stack)
+	if (!(*stack))
 	{
 		new->prev = NULL;
 		*stack = new;
 	}
 	else
 	{
-		last = last_node(*stack);
+		last = ft_last_node(*stack);
 		while (last->next)
 			last = last->next;
 		last->next = new;
@@ -86,13 +62,7 @@ void	stack_init_a(t_stack_node **a, char **argv)
 	i = 0;
 	while (argv[i])
 	{
-		if (error_syntax(argv[i]))
-			free_error(a);
 		n = ft_atol(argv[i]);
-		if (n > INT_MAX || n < INT_MIN)
-			free_error(a);
-		if (error_duplicate(*a, (int)n))
-			free_error(a);
 		add_node(a, (int)n);
 		i++;
 	}

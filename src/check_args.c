@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:32:49 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/16 18:36:57 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/17 13:12:47 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,42 @@ int	isduplicate(int i, char **av)
 	return (0);
 }
 
+int	ft_atol(const char *str)
+{
+	long	res;
+	int		sign;
+
+	res = 0;
+	sign = 1;
+	while (*str == ' ' || *str == '\t' || *str == '\n' \
+			|| *str == '\v' || *str == '\f' || *str == '\r' || *str == '0')
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (ft_isdigit(*str))
+		res = res * 10 + (*str++ - '0');
+	return (res * sign);
+}
+
 void	check_args(int ac, char **av)
 {
-	int	i;
+	int		i;
+	long	n;
 
 	i = 1;
+	n = 0;
 	while (i < ac)
 	{
 		if (av[i][0] == '\0')
 			put_error();
-		ft_isdigit(ft_atol(av[i]));
+		n = ft_atol(av[i]);
+		ft_isdigit((int)n);
 		isduplicate(i, av);
-		check_limits(ft_atol(av[i]));
+		check_limits(n);
 		i++;
 	}
 }

@@ -6,36 +6,46 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 20:08:08 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/16 20:09:28 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/17 17:32:30 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	pa(t_stack_node **a, t_stack_node **b, bool print)
+void	push_stack(t_stack_node **src, t_stack_node **dst)
 {
 	t_stack_node	*tmp;
 
-	if (!*b)
+	if (!*src)
 		return ;
-	tmp = *b;
-	*b = (*b)->next;
-	tmp->next = *a;
-	*a = tmp;
+	tmp = *src;
+	*src = (*src)->next;
+	if (*src)
+		(*src)->prev = NULL;
+	tmp->prev = NULL;
+	if (*dst == NULL)
+	{
+		*dst = tmp;
+		tmp->next = NULL;
+	}
+	else
+	{
+		tmp->next = *dst;
+		tmp->next->prev = tmp;
+		*dst = tmp;
+	}
+}
+
+void	pa(t_stack_node **a, t_stack_node **b, bool print)
+{
+	push_stack(a, b);
 	if (print)
 		ft_putendl_fd("pa", 1);
 }
 
-void	pb(t_stack_node **a, t_stack_node **b, bool print)
+void	pb(t_stack_node **b, t_stack_node **a, bool print)
 {
-	t_stack_node	*tmp;
-
-	if (!*a)
-		return ;
-	tmp = *a;
-	*a = (*a)->next;
-	tmp->next = *b;
-	*b = tmp;
+	push_stack(b, a);
 	if (print)
 		ft_putendl_fd("pb", 1);
 }

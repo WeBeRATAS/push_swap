@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:25:39 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/06 11:35:34 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/17 10:33:39 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ bool	is_sorted(t_stack_node *stack)
 	return (true);
 }
 
-t_stack_node	*last_node(t_stack_node *upper)
+t_stack_node	*ft_last_node(t_stack_node *upper)
 {
 	if (!upper)
 		return (NULL);
@@ -38,7 +38,7 @@ t_stack_node	*last_node(t_stack_node *upper)
 	return (upper);
 }
 
-static int	stack_len(t_stack_node *stack)
+int	stack_len(t_stack_node *stack)
 {
 	int	len;
 
