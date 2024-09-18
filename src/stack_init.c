@@ -12,19 +12,45 @@
 
 #include "../inc/push_swap.h"
 
+int	put_error(void)
+{
+	write(2, "Error\n", 6);
+	exit(EXIT_FAILURE);
+}
+
+bool	is_sorted(t_stack_node *stack)
+{
+	if (!stack)
+		return (1);
+	printf("Control 5.1 llega is_sorted de comprobar que hay stack\n");
+	while (stack->next)
+	{
+		if (stack->num > stack->next->num)
+			return (false);
+		stack = stack->next;
+		printf("Control 5.2 dentro revision is_sorted de elementos\n");
+	}
+	return (true);
+}
+
 void	stack_free(t_stack_node **stack)
 {
 	t_stack_node	*tmp;
+	t_stack_node	*current;
 
 	if (!stack)
 		return ;
-	while (*stack)
+	if (stack && *stack)
 	{
-		tmp = *stack;
-		*stack = (*stack)->next;
-		free(tmp);
+		current = *stack;
+		while (current)
+		{
+			tmp = current->next;
+			free(current);
+			current = tmp;
+		}
+		*stack = NULL;
 	}
-	*stack = NULL;
 }
 
 void	add_node(t_stack_node **stack, int n)
@@ -41,20 +67,18 @@ void	add_node(t_stack_node **stack, int n)
 	new->next = NULL;
 	if (!(*stack))
 	{
-		new->prev = NULL;
 		*stack = new;
+		new->prev = NULL;
 	}
 	else
 	{
 		last = ft_last_node(*stack);
-		while (last->next)
-			last = last->next;
 		last->next = new;
 		new->prev = last;
 	}
 }
 
-void	stack_init_a(t_stack_node **a, char **av)
+void	stack_init(t_stack_node **a, char **av)
 {
 	long			n;
 	int				i;

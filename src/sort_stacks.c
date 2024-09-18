@@ -17,18 +17,19 @@ void	sort_five(t_stack_node **a, t_stack_node **b)
 	t_stack_node	*min;
 	t_stack_node	*max;
 
-	while (stack_len(*a) > 3)
+	min = find_small(*a);
+	max = find_big(*a);
+	if (min->index < max->index)
 	{
-		min = find_min(*a);
-		max = find_max(*a);
-		if (min->index < max->index)
-			while ((*a)->num != min->num)
-				ra(a, true);
-		else
-			while ((*a)->num != min->num)
-				rra(a, true);
-		pb(b, a, true);
+		while ((*a)->num != min->num)
+			ra(a, true);
 	}
+	else
+	{
+		while ((*a)->num != min->num)
+			rra(a, true);
+	}
+	pb(b, a, true);
 	sort_three(a);
 	while (*b)
 		pa(a, b, true);

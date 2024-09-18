@@ -16,6 +16,7 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
+MODE = null
 HEADER = inc/push_swap.h
 LIBFT = libft/libft.a
 PRINTF = printf/libftprintf.a
@@ -32,6 +33,10 @@ CFILES =  main.c\
 		  rotate.c\
 		  		  
 OBJS = $(addprefix src/, $(CFILES:.c=.o))
+
+ifeq ($(MODE), debug)
+	CFLAGS += -g
+endif
 
 all: library $(NAME)
 

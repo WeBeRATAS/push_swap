@@ -12,19 +12,6 @@
 
 #include "../inc/push_swap.h"
 
-bool	is_sorted(t_stack_node *stack)
-{
-	if (!stack)
-		return (1);
-	while (stack->next)
-	{
-		if (stack->num > stack->next->num)
-			return (false);
-		stack = stack->next;
-	}
-	return (true);
-}
-
 t_stack_node	*ft_last_node(t_stack_node *upper)
 {
 	if (!upper)
@@ -47,14 +34,34 @@ int	stack_len(t_stack_node *stack)
 		put_error();
 	while (stack)
 	{
+		len++;
 		stack = stack->next;
-		len += 1;
 	}
 	printf("La len stack es: %d\n", len);
-	return (len + 1);
+	return (len);
 }
 
-t_stack_node	*find_min(t_stack_node *stack)
+t_stack_node	*find_big(t_stack_node *stack)
+{
+	t_stack_node	*max_node;
+	long			max;
+
+	if (!stack)
+		return (NULL);
+	max = LONG_MIN;
+	while (stack)
+	{
+		if ((stack->num) > (max))
+		{
+			max = stack->num;
+			max_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (max_node);
+}
+
+t_stack_node	*find_small(t_stack_node *stack)
 {
 	long			min;
 	t_stack_node	*min_node;
@@ -76,16 +83,13 @@ t_stack_node	*find_min(t_stack_node *stack)
 
 t_stack_node	*find_cheapest(t_stack_node *stack)
 {
-	t_stack_node	*cheapest;
-	t_stack_node	*current;
-
-	cheapest = find_min(stack);
-	current = stack;
-	while (current)
+	if (!stack)
+		return (NULL);
+	while (stack)
 	{
-		if (current->push_cost < cheapest->push_cost)
-			cheapest = current;
-		current = current->next;
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
 	}
-	return (cheapest);
+	return (NULL);
 }

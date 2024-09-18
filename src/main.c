@@ -20,28 +20,34 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
+		exit(EXIT_FAILURE);
+	if (ac >= 2)
 	{
-		if (ac == 2)
-			put_error();
-		return (0);
-	}
-	printf("Control 1\n");
-	av = ft_split(av[1], ' ');
-	printf("Control 2 despues split texto\n");
-	check_args(ac, av);
-	printf("Control 3 despues revisar argumentos check\n");
-	stack_init_a(&a, av + 1);
-	printf("Control 4 despues de stack init\n");
-	if (!is_sorted(a))
-	printf("Control 5 despues de esta ordenado\n");
+		printf("Control 1\n");
+		if (check_args(ac, av))
+			return (put_error());
+	/*av = ft_split(av[1], ' ');
+	if (!av)
 	{
-		if (stack_len(a) == 2)
-			sa(&a, false);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
-		else if (stack_len(a) > 3)
-			sort_stacks(&a, &b);
+		put_error();
+		return (1);
+	}*/
+		printf("Control 2 despues revisar argumentos check\n");
+		stack_init(&a, av);
+		printf("Control 4 despues de stack init\n");
+		if (!is_sorted(a))
+		{
+			printf("Control 5 dentro de if is_sorted\n");
+			if (stack_len(a) == 2)
+				sa(&a, false);
+			else if (stack_len(a) == 3)
+				sort_three(&a);
+			else if (stack_len(a) <= 5)
+				sort_five(&a, &b);
+			else
+				sort_stacks(&a, &b);
+		}
+		return (stack_free(&a), 0);
 	}
-	printf("Control 6 no entra en bucle de esta ordenado\n");
-	return (stack_free(&a), 0);
+	return (0);
 }

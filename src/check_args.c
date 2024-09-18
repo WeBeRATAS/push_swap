@@ -12,33 +12,46 @@
 
 #include "../inc/push_swap.h"
 
-void	put_error(void)
+int	ft_isnum(char *s)
 {
-	write(2, "Error\n", 6);
-	exit(1);
+	int	i;
+
+	i = 0;
+	if ((s[i] == '-' || s[i] == '+') && (s[i + 1] == '\0'))
+		put_error();
+	if (s[i] == '-' || s[i] == '+')
+		i++;
+	while (s[i])
+	{
+		if (s[i] >= '0' && s[i] <= '9')
+			i++;
+		else
+			put_error();
+	}
+	return (1);
 }
 
-void	check_limits(long n)
+void	ft_check_limits(long n)
 {
 	if (n > INT_MAX || n < INT_MIN)
 		put_error();
 }
 
-int	isduplicate(int i, char **av)
+int	ft_isduplicate(int i, char **av)
 {
 	int	j;
 
 	j = 1;
 	while (j < i)
 	{
-		if (ft_atol(av[i]) == ft_atol(av[j]))
+		if (ft_atol(av[j]) == ft_atol(av[i]))
 			put_error();
 		j++;
 	}
 	return (0);
 }
 
-int	ft_atol(const char *str)
+long	ft_atol(const char *str)
 {
 	long	res;
 	int		sign;
@@ -59,7 +72,7 @@ int	ft_atol(const char *str)
 	return (res * sign);
 }
 
-void	check_args(int ac, char **av)
+int	check_args(int ac, char **av)
 {
 	int		i;
 	long	n;
@@ -71,9 +84,11 @@ void	check_args(int ac, char **av)
 		if (av[i][0] == '\0')
 			put_error();
 		n = ft_atol(av[i]);
-		ft_isdigit((int)n);
-		isduplicate(i, av);
-		check_limits(n);
+		ft_isnum(av[i]);
+		ft_isduplicate(i, av);
+		ft_check_limits(n);
+		printf("Control 3.1\n");
 		i++;
 	}
+	return (0);
 }

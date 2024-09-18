@@ -12,32 +12,16 @@
 
 #include "../inc/push_swap.h"
 
-t_stack_node	*find_max(t_stack_node *a)
-{
-	t_stack_node	*max;
-
-	if (!a)
-		put_error();
-	max = a;
-	while (max)
-	{
-		if (a->num > max->num)
-			max = a;
-		a = a->next;
-	}
-	return (max);
-}
-
 void	sort_three(t_stack_node **a)
 {
 	t_stack_node	*biggest_node;
 
 	if (!a || !*a)
 		put_error();
-	biggest_node = find_max(*a);
-	if (biggest_node == *a)
+	biggest_node = find_big(*a);
+	if ((biggest_node->num == (*a)->num))
 		ra(a, false);
-	else if (biggest_node == (*a)->next)
+	else if (biggest_node->num == (*a)->next->num)
 		rra(a, false);
 	else if ((*a)->num > (*a)->next->num)
 		sa(a, false);
