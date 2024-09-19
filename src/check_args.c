@@ -6,18 +6,29 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:32:49 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/17 13:12:47 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/19 10:38:19 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+<<<<<<< HEAD
+int	ft_isnum(const char *s)
+=======
 int	ft_isnum(char *s)
+>>>>>>> 531f95315dc28314bd0d3daca4fd1cecda70cde0
 {
 	int	i;
 
 	i = 0;
+<<<<<<< HEAD
+	if (!s)
+		return (0);
+	if (((s[i] == '-' || s[i] == '+') && (s[i + 1] == '\0')) \
+	|| ((s[i] == '-' || s[i] == '+') && (s[i + 1] == '0')))
+=======
 	if ((s[i] == '-' || s[i] == '+') && (s[i + 1] == '\0'))
+>>>>>>> 531f95315dc28314bd0d3daca4fd1cecda70cde0
 		put_error();
 	if (s[i] == '-' || s[i] == '+')
 		i++;
@@ -58,6 +69,8 @@ long	ft_atol(const char *str)
 
 	res = 0;
 	sign = 1;
+	if (!str)
+		return (0);
 	while (*str == ' ' || *str == '\t' || *str == '\n' \
 			|| *str == '\v' || *str == '\f' || *str == '\r' || *str == '0')
 		str++;
@@ -67,7 +80,7 @@ long	ft_atol(const char *str)
 			sign = -1;
 		str++;
 	}
-	while (ft_isdigit(*str))
+	while (ft_isnum(str))
 		res = res * 10 + (*str++ - '0');
 	return (res * sign);
 }
@@ -81,13 +94,16 @@ int	check_args(int ac, char **av)
 	n = 0;
 	while (i < ac)
 	{
-		if (av[i][0] == '\0')
+		if (!av)
 			put_error();
 		n = ft_atol(av[i]);
 		ft_isnum(av[i]);
 		ft_isduplicate(i, av);
 		ft_check_limits(n);
+<<<<<<< HEAD
+=======
 		printf("Control 3.1\n");
+>>>>>>> 531f95315dc28314bd0d3daca4fd1cecda70cde0
 		i++;
 	}
 	return (0);

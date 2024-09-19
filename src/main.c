@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:52:03 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/17 18:53:23 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/19 09:55:57 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,38 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
+<<<<<<< HEAD
+	if (ac == 1 || (ac == 2 && !ft_isnum(av[1])))
+		exit(EXIT_FAILURE);
+	if (ac == 2)
+	{
+		av = ft_split(av[1], ' ');
+		if (!av)
+		{
+			put_error();
+			return (1);
+		}
+		if (check_args(ac, av))
+			return (put_error());
+		if (!(stack_init(&a, av)))
+		{
+			put_error();
+			return (stack_free(&a),0);
+		}
+		else
+		{
+			if (!is_sorted(a))
+			{
+				if (stack_len(a) == 2)
+					sa(&a, false);
+				else if (stack_len(a) == 3)
+					sort_three(&a);
+				else if (stack_len(a) <= 5)
+					sort_five(&a, &b);
+				else
+					sort_stacks(&a, &b);
+			}
+=======
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		exit(EXIT_FAILURE);
 	if (ac >= 2)
@@ -46,6 +78,7 @@ int	main(int ac, char **av)
 				sort_five(&a, &b);
 			else
 				sort_stacks(&a, &b);
+>>>>>>> 531f95315dc28314bd0d3daca4fd1cecda70cde0
 		}
 		return (stack_free(&a), 0);
 	}

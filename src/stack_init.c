@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:36:17 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/17 19:01:55 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/19 09:48:28 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,19 @@ void	add_node(t_stack_node **stack, int n)
 	}
 }
 
+<<<<<<< HEAD
+bool	stack_init(t_stack_node **a, char **av)
+=======
 void	stack_init(t_stack_node **a, char **av)
+>>>>>>> 531f95315dc28314bd0d3daca4fd1cecda70cde0
 {
 	long			n;
 	int				i;
 	t_stack_node	*tmp;
 
 	i = 0;
+	if (*a || a)
+		return (1);
 	while (av[i])
 	{
 		n = ft_atol(av[i]);
@@ -93,4 +99,5 @@ void	stack_init(t_stack_node **a, char **av)
 	}
 	tmp = *a;
 	(void)tmp;
+	return (0);
 }
