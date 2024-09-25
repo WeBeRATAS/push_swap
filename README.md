@@ -116,6 +116,7 @@ Está estrictamente prohibido usar funciones normales . libc Sin embargo, los es
 De ninguna manera puede cerrarse de manera inesperada (error de segmentación, error de bus, doble liberación, etc.).
 
 EL ALGORITMO
+============================
 Este algoritmo no tiene nobre como tal, si tuviera un nombre seria; Shortest Move Sort. Por que busca el movimiento más corto posible en cada caso y lo ejecuta, para ello debe cumplir estas condiciones:
 
 El numero elegido del Stack A debe ser menor al número top del Stack B y Mayor al Numero del fondo del Stack B. Ejemplo:
@@ -144,6 +145,7 @@ En este pequeño y básico ejemplo, vemos el mapa de movimientos y cual consume 
 Esa es la base, ahora falta optimizarlo, el primer paso es que las rotaciones pueden ser tanto por arriba o por abajo, Para ello, cuando la condición se cumple, comprobamos tanto del Stack A como del Stack B si es mas rápido rotando hacia arriba o hacia abajo:
 
 Ejemplo práctico:
+***********************
 
 Stack A
 25
@@ -158,6 +160,7 @@ Como hemos visto importa el sentido de los movimientos, y esto nos ayudará a el
 Una vez encontramos una opción que cumpla la condición 1, guardamos cuantos movimientos hacia arriba y hacia abajo se harian tanto en el Stack A como en el Stack B:
 
 Ejemplo práctico:
+*************************************
 
 Movimientos	Stack A (300 numeros)	Stack B (100 numeros)
 Hacia arriba	192 movimientos	5 movimientos
