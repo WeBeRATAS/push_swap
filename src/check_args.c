@@ -6,29 +6,21 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:32:49 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/19 10:38:19 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/25 10:30:44 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-<<<<<<< HEAD
-int	ft_isnum(const char *s)
-=======
 int	ft_isnum(char *s)
->>>>>>> 531f95315dc28314bd0d3daca4fd1cecda70cde0
 {
 	int	i;
 
 	i = 0;
-<<<<<<< HEAD
 	if (!s)
 		return (0);
 	if (((s[i] == '-' || s[i] == '+') && (s[i + 1] == '\0')) \
 	|| ((s[i] == '-' || s[i] == '+') && (s[i + 1] == '0')))
-=======
-	if ((s[i] == '-' || s[i] == '+') && (s[i + 1] == '\0'))
->>>>>>> 531f95315dc28314bd0d3daca4fd1cecda70cde0
 		put_error();
 	if (s[i] == '-' || s[i] == '+')
 		i++;
@@ -100,10 +92,7 @@ int	check_args(int ac, char **av)
 		ft_isnum(av[i]);
 		ft_isduplicate(i, av);
 		ft_check_limits(n);
-<<<<<<< HEAD
-=======
 		printf("Control 3.1\n");
->>>>>>> 531f95315dc28314bd0d3daca4fd1cecda70cde0
 		i++;
 	}
 	return (0);

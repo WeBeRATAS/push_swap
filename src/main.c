@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:52:03 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/19 09:55:57 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/25 10:29:52 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-<<<<<<< HEAD
-	if (ac == 1 || (ac == 2 && !ft_isnum(av[1])))
+	if (ac == 1 || && !ft_isnum(av[1]))
 		exit(EXIT_FAILURE);
 	if (ac == 2)
 	{
@@ -50,35 +49,6 @@ int	main(int ac, char **av)
 				else
 					sort_stacks(&a, &b);
 			}
-=======
-	if (ac == 1 || (ac == 2 && !av[1][0]))
-		exit(EXIT_FAILURE);
-	if (ac >= 2)
-	{
-		printf("Control 1\n");
-		if (check_args(ac, av))
-			return (put_error());
-	/*av = ft_split(av[1], ' ');
-	if (!av)
-	{
-		put_error();
-		return (1);
-	}*/
-		printf("Control 2 despues revisar argumentos check\n");
-		stack_init(&a, av);
-		printf("Control 4 despues de stack init\n");
-		if (!is_sorted(a))
-		{
-			printf("Control 5 dentro de if is_sorted\n");
-			if (stack_len(a) == 2)
-				sa(&a, false);
-			else if (stack_len(a) == 3)
-				sort_three(&a);
-			else if (stack_len(a) <= 5)
-				sort_five(&a, &b);
-			else
-				sort_stacks(&a, &b);
->>>>>>> 531f95315dc28314bd0d3daca4fd1cecda70cde0
 		}
 		return (stack_free(&a), 0);
 	}
