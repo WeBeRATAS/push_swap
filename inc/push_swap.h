@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:13:18 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/25 10:32:32 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/25 17:01:25 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int				stack_len(t_stack_node *stack);
 t_stack_node	*find_small(t_stack_node *stack);
 t_stack_node	*find_cheapest(t_stack_node *stack);
 t_stack_node	*find_big(t_stack_node *a);
-long			ft_atol(const char *str);
+long			ft_atol(char *str);
 t_stack_node	*ft_last_node(t_stack_node *upper);
 
 //Handle arguments
@@ -48,15 +48,14 @@ int				check_args(int ac, char **av);
 int				ft_isduplicate(int i, char **av);
 void			ft_check_limits(long n);
 int				ft_isnum(char *s);
-int				put_error(void);
+void			put_error(void);
 
 // Algorithm Sort operations
 void			sort_three(t_stack_node **a);
-void			sort_five(t_stack_node **a, t_stack_node **b);
-void			sort_stacks(t_stack_node **a, t_stack_node **b);
+void			push_stacks(t_stack_node **a, t_stack_node **b);
 
 //Stacks initiation
-bool			stack_init(t_stack_node **stack, char **av);
+void			stack_init(t_stack_node **stack, char **av);
 void			stack_free(t_stack_node **stack);
 void			add_node(t_stack_node **stack, int n);
 

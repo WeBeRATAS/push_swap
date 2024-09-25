@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:25:39 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/17 18:43:45 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/25 15:55:56 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,15 @@ int	stack_len(t_stack_node *stack)
 		put_error();
 	while (stack)
 	{
-		len++;
 		stack = stack->next;
+		len++;
 	}
-	printf("La len stack es: %d\n", len);
 	return (len);
 }
 
 t_stack_node	*find_big(t_stack_node *stack)
 {
-	t_stack_node	*max_node;
+	t_stack_node	*big_node;
 	long			max;
 
 	if (!stack)
@@ -54,11 +53,11 @@ t_stack_node	*find_big(t_stack_node *stack)
 		if ((stack->num) > (max))
 		{
 			max = stack->num;
-			max_node = stack;
+			big_node = stack;
 		}
 		stack = stack->next;
 	}
-	return (max_node);
+	return (big_node);
 }
 
 t_stack_node	*find_small(t_stack_node *stack)

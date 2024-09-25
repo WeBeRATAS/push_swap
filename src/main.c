@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:52:03 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/25 10:29:52 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/25 17:00:57 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,38 +19,37 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (ac == 1 || && !ft_isnum(av[1]))
+	if (ac == 1 || (ac == 2 && !ft_isnum(av[1])))
 		exit(EXIT_FAILURE);
-	if (ac == 2)
+	if (ac >= 2)
 	{
-		av = ft_split(av[1], ' ');
 		if (!av)
 		{
 			put_error();
 			return (1);
 		}
-		if (check_args(ac, av))
-			return (put_error());
-		if (!(stack_init(&a, av)))
+		int i;
+		i = 0;
+
+		while (av[i])
 		{
-			put_error();
-			return (stack_free(&a),0);
+			printf("Stack a elemento %d es: %s\n", i, av[i]);
+			i++;
 		}
-		else
+		check_args(ac, av);
+		stack_init(&a, av + 1);
+		if (!is_sorted(a))
 		{
-			if (!is_sorted(a))
+			if (stack_len(a) == 2)
+				sa(&a, false);
+			else if (stack_len(a) == 3)
+				sort_three(&a);
+			else
 			{
-				if (stack_len(a) == 2)
-					sa(&a, false);
-				else if (stack_len(a) == 3)
-					sort_three(&a);
-				else if (stack_len(a) <= 5)
-					sort_five(&a, &b);
-				else
-					sort_stacks(&a, &b);
+				printf("Entramos > 3 elementos stack\n");
+				push_stacks(&a, &b);
 			}
 		}
-		return (stack_free(&a), 0);
 	}
-	return (0);
+	return (stack_free(&a), 0);
 }

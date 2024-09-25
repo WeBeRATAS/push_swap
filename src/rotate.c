@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 20:07:19 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/16 20:07:43 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/25 16:38:27 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ra(t_stack_node **a, bool print)
 		last = last->next;
 	last->next = tmp;
 	tmp->next = NULL;
-	if (print)
+	if (!print)
 		ft_putendl_fd("ra", 1);
 }
 
@@ -44,7 +44,7 @@ void	rb(t_stack_node **b, bool print)
 		last = last->next;
 	last->next = tmp;
 	tmp->next = NULL;
-	if (print)
+	if (!print)
 		ft_putendl_fd("rb", 1);
 }
 
@@ -52,6 +52,6 @@ void	rr(t_stack_node **a, t_stack_node **b, bool print)
 {
 	ra(a, false);
 	rb(b, false);
-	if (print)
+	if (!print)
 		ft_putendl_fd("rr", 1);
 }

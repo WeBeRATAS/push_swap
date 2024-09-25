@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 20:08:08 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/17 17:32:30 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/25 16:42:01 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ void	push_stack(t_stack_node **src, t_stack_node **dst)
 void	pa(t_stack_node **a, t_stack_node **b, bool print)
 {
 	push_stack(a, b);
-	if (print)
+	if (!print)
 		ft_putendl_fd("pa", 1);
 }
 
 void	pb(t_stack_node **b, t_stack_node **a, bool print)
 {
 	push_stack(b, a);
-	if (print)
+	if (!print)
 		ft_putendl_fd("pb", 1);
 }

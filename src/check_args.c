@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:32:49 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/25 10:30:44 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/25 12:42:19 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_isnum(char *s)
 
 	i = 0;
 	if (!s)
-		return (0);
+		put_error();
 	if (((s[i] == '-' || s[i] == '+') && (s[i + 1] == '\0')) \
 	|| ((s[i] == '-' || s[i] == '+') && (s[i + 1] == '0')))
 		put_error();
@@ -51,10 +51,10 @@ int	ft_isduplicate(int i, char **av)
 			put_error();
 		j++;
 	}
-	return (0);
+	return (1);
 }
 
-long	ft_atol(const char *str)
+long	ft_atol(char *str)
 {
 	long	res;
 	int		sign;
@@ -62,9 +62,8 @@ long	ft_atol(const char *str)
 	res = 0;
 	sign = 1;
 	if (!str)
-		return (0);
-	while (*str == ' ' || *str == '\t' || *str == '\n' \
-			|| *str == '\v' || *str == '\f' || *str == '\r' || *str == '0')
+		put_error();
+	while (*str == ' ' || (*str >= 9 && *str <= 13) || *str == '0')
 		str++;
 	if (*str == '-' || *str == '+')
 	{
@@ -72,7 +71,7 @@ long	ft_atol(const char *str)
 			sign = -1;
 		str++;
 	}
-	while (ft_isnum(str))
+	while (*str)
 		res = res * 10 + (*str++ - '0');
 	return (res * sign);
 }
@@ -88,11 +87,10 @@ int	check_args(int ac, char **av)
 	{
 		if (!av)
 			put_error();
-		n = ft_atol(av[i]);
 		ft_isnum(av[i]);
-		ft_isduplicate(i, av);
+		n = ft_atol(av[i]);
 		ft_check_limits(n);
-		printf("Control 3.1\n");
+		ft_isduplicate(i, av);
 		i++;
 	}
 	return (0);

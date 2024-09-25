@@ -6,23 +6,22 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:36:17 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/25 10:31:39 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/25 15:58:01 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	put_error(void)
+void	put_error(void)
 {
 	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
+	exit(0);
 }
 
 bool	is_sorted(t_stack_node *stack)
 {
 	if (!stack)
 		return (1);
-	printf("Control 5.1 llega is_sorted de comprobar que hay stack\n");
 	while (stack->next)
 	{
 		if (stack->num > stack->next->num)
@@ -78,15 +77,13 @@ void	add_node(t_stack_node **stack, int n)
 	}
 }
 
-bool	stack_init(t_stack_node **a, char **av)
+void	stack_init(t_stack_node **a, char **av)
 {
 	long			n;
 	int				i;
 	t_stack_node	*tmp;
 
 	i = 0;
-	if (*a || a)
-		return (1);
 	while (av[i])
 	{
 		n = ft_atol(av[i]);
@@ -95,5 +92,4 @@ bool	stack_init(t_stack_node **a, char **av)
 	}
 	tmp = *a;
 	(void)tmp;
-	return (0);
 }
