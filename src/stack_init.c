@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:36:17 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/25 15:58:01 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/27 11:47:51 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ bool	is_sorted(t_stack_node *stack)
 		if (stack->num > stack->next->num)
 			return (false);
 		stack = stack->next;
-		printf("Control 5.2 dentro revision is_sorted de elementos\n");
 	}
 	return (true);
 }
