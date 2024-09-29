@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:25:39 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/25 15:55:56 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/29 20:20:15 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ t_stack_node	*find_small(t_stack_node *stack)
 	return (min_node);
 }
 
-t_stack_node	*find_cheapest(t_stack_node *stack)
+t_stack_node	*return_cheapest(t_stack_node *stack)
 {
 	if (!stack)
 		return (NULL);

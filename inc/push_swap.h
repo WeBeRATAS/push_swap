@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:13:18 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/25 17:01:25 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/29 22:19:14 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,14 @@ typedef struct s_stack_node
 bool			is_sorted(t_stack_node *stack);
 int				stack_len(t_stack_node *stack);
 t_stack_node	*find_small(t_stack_node *stack);
-t_stack_node	*find_cheapest(t_stack_node *stack);
+void		set_cheapest(t_stack_node *stack);
 t_stack_node	*find_big(t_stack_node *a);
 long			ft_atol(char *str);
 t_stack_node	*ft_last_node(t_stack_node *upper);
+void		init_nodes(t_stack_node *a, t_stack_node *b);
+void		set_cost(t_stack_node *a, t_stack_node *b);
+void		current_index(t_stack_node *stack);
+t_stack_node    *return_cheapest(t_stack_node *stack);
 
 //Handle arguments
 int				check_args(int ac, char **av);
@@ -52,7 +56,10 @@ void			put_error(void);
 
 // Algorithm Sort operations
 void			sort_three(t_stack_node **a);
+void			sort_five(t_stack_node **a, t_stack_node **b);
 void			push_stacks(t_stack_node **a, t_stack_node **b);
+void			sort_stacks(t_stack_node **a, t_stack_node **b);
+void			prep_push(t_stack_node **stack, t_stack_node *head_node, char stack_name);
 
 //Stacks initiation
 void			stack_init(t_stack_node **stack, char **av);

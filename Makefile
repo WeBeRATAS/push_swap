@@ -6,7 +6,7 @@
 #    By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/27 09:53:34 by rbuitrag          #+#    #+#              #
-#    Updated: 2024/09/17 17:16:04 by rbuitrag         ###   ########.fr        #
+#    Updated: 2024/09/29 21:02:19 by rbuitrag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ CFILES =  main.c\
 		  swap.c\
 		  reverse_rotate.c\
 		  rotate.c\
+		  sort_utils.c\
 		  		  
 OBJS = $(addprefix src/, $(CFILES:.c=.o))
 
