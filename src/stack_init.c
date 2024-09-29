@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:36:17 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/27 11:47:51 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/29 15:00:02 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	put_error(void)
 {
 	write(2, "Error\n", 6);
-	exit(0);
+	exit(1);
 }
 
 bool	is_sorted(t_stack_node *stack)
@@ -44,6 +44,7 @@ void	stack_free(t_stack_node **stack)
 		while (current)
 		{
 			tmp = current->next;
+			current->num = 0;
 			free(current);
 			current = tmp;
 		}

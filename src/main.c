@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:52:03 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/27 12:05:15 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/27 17:01:31 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ int	main(int ac, char **av)
 			put_error();
 			return (1);
 		}
-		int i;
+		/*int i;
 		i = 1;
 
 		while (av[i])
 		{
 			printf("Stack a elemento %d es: %s\n", i, av[i]);
 			i++;
-		}
+		}*/
 		check_args(ac, av);
 		stack_init(&a, av + 1);
 		if (!is_sorted(a))
@@ -46,7 +46,7 @@ int	main(int ac, char **av)
 				sort_three(&a);
 			else
 			{
-				printf("Entramos > 3 elementos stack\n");
+			//	printf("Entramos > 3 elementos stack\n");
 				push_stacks(&a, &b);
 			}
 		}
