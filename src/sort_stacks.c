@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:16:54 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/29 22:07:35 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/29 22:57:10 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,13 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 	t_stack_node	*small_node;
 
 	len_a = stack_len(*a);
-	if (len_a == 5 && !is_sorted(*a))
+	if (len_a == 5)
 		sort_five(a, b);
-	while (len_a-- > 3)
-		pb(b, a, false);
+	else
+	{
+		while (len_a-- > 3)
+			pb(b, a, false);
+	}
 	sort_three(a);
 	while (*b)
 	{
