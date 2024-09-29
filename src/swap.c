@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 20:10:29 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/25 14:29:43 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/29 22:42:52 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	sa(t_stack_node **a, bool print)
 {
 	t_stack_node	*tmp;
 
-	if (!*a || !(*a)->next)
-		return ;
 	tmp = (*a)->next;
 	(*a)->next = tmp->next;
 	tmp->next = *a;
@@ -30,8 +28,6 @@ void	sb(t_stack_node **b, bool print)
 {
 	t_stack_node	*tmp;
 
-	if (!*b || !(*b)->next)
-		return ;
 	tmp = (*b)->next;
 	(*b)->next = tmp->next;
 	tmp->next = *b;

@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 20:07:19 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/25 16:38:27 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/29 22:42:20 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	ra(t_stack_node **a, bool print)
 	t_stack_node	*tmp;
 	t_stack_node	*last;
 
-	if (!*a || !(*a)->next)
-		return ;
 	tmp = *a;
 	*a = (*a)->next;
 	last = tmp;
@@ -35,8 +33,6 @@ void	rb(t_stack_node **b, bool print)
 	t_stack_node	*tmp;
 	t_stack_node	*last;
 
-	if (!*b || !(*b)->next)
-		return ;
 	tmp = *b;
 	*b = (*b)->next;
 	last = tmp;

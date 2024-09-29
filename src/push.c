@@ -6,13 +6,13 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 20:08:08 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/25 16:42:01 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/29 22:47:03 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	push_stack(t_stack_node **src, t_stack_node **dst)
+void	push_stack(t_stack_node **dst, t_stack_node **src)
 {
 	t_stack_node	*tmp;
 
