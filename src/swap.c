@@ -29,14 +29,14 @@ void	sa(t_stack_node **a, bool print)
 {
 	swap(a);
 	if (!print)
-		ft_putendl_fd("sa", 1);
+		write(1, "sa\n", 3);
 }
 
 void	sb(t_stack_node **b, bool print)
 {
 	swap(b);
 	if (!print)
-		ft_putendl_fd("sb", 1);
+		write(1, "sb\n", 3);
 }
 
 void	ss(t_stack_node **a, t_stack_node **b, bool print)
@@ -44,5 +44,5 @@ void	ss(t_stack_node **a, t_stack_node **b, bool print)
 	swap(a);
 	swap(b);
 	if (!print)
-		ft_putendl_fd("ss", 1);
+		write(1, "ss\n", 3);
 }

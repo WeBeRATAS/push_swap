@@ -34,25 +34,20 @@ bool	is_sorted(t_stack_node *stack)
 void	stack_free(t_stack_node **stack)
 {
 	t_stack_node	*tmp;
-	t_stack_node	*current;
 
 	if (!stack)
 		return ;
-	if (stack && *stack)
+	while (*stack)
 	{
-		current = *stack;
-		while (current)
-		{
-			tmp = current->next;
-			current->num = 0;
-			free(current);
-			current = tmp;
-		}
-		*stack = NULL;
+		tmp = (*stack)->next;
+		(*stack)->num = 0;
+		free(*stack);
+		*stack = tmp;
 	}
+	*stack = NULL;
 }
 
-void	add_node(t_stack_node **stack, int n)
+void	add_node(t_stack_node **stack, int num, int index)
 {
 	t_stack_node	*new;
 	t_stack_node	*last;
@@ -63,7 +58,8 @@ void	add_node(t_stack_node **stack, int n)
 	if (!new)
 		exit(EXIT_FAILURE);
 	new->next = NULL;
-	new->num = n;
+	new->num = num;
+	new->index = index;
 	if (!(*stack))
 	{
 		*stack = new;
@@ -87,7 +83,7 @@ void	stack_init(t_stack_node **a, char **av)
 	while (av[i])
 	{
 		n = ft_atol(av[i]);
-		add_node(a, (int)n);
+		add_node(a, (int)n, i);
 		i++;
 	}
 	tmp = *a;

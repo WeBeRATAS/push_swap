@@ -34,18 +34,20 @@ void	push_stack(t_stack_node **dst, t_stack_node **src)
 		tmp->next->prev = tmp;
 		*dst = tmp;
 	}
+	set_index(*dst);
+	set_index(*src);
 }
 
 void	pa(t_stack_node **a, t_stack_node **b, bool print)
 {
 	push_stack(a, b);
 	if (!print)
-		ft_putendl_fd("pa", 1);
+		write(1, "pa\n", 3);
 }
 
 void	pb(t_stack_node **b, t_stack_node **a, bool print)
 {
 	push_stack(b, a);
 	if (!print)
-		ft_putendl_fd("pb", 1);
+		write(1, "pb\n", 3);
 }

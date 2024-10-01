@@ -69,7 +69,7 @@ void	sort_five(t_stack_node **a, t_stack_node **b)
 {
 	while (stack_len(*a) > 3)
 	{
-		init_nodes(*a, *b);
+		init_node(*a, *b);
 		prep_push(a, find_small(*a), 'a');
 		pb(b, a, false);
 	}

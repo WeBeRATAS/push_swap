@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:16:54 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/30 19:42:14 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/10/01 18:48:42 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static void	rotate_both(t_stack_node **a, t_stack_node **b, \
 {
 	while (*a != cheapest->target_node && *b != cheapest)
 		rr(a, b, false);
-	current_index(*a);
-	current_index(*b);
+	set_index(*a);
+	set_index(*b);
 }
 
 static void	reverse_rotate_both(t_stack_node **a, t_stack_node **b, \
@@ -26,8 +26,8 @@ static void	reverse_rotate_both(t_stack_node **a, t_stack_node **b, \
 {
 	while (*a != cheapest->target_node && *b != cheapest)
 		rrr(a, b, false);
-	current_index(*a);
-	current_index(*b);
+	set_index(*a);
+	set_index(*b);
 }
 
 void	prep_push(t_stack_node **stack, t_stack_node *head_node, \
@@ -70,29 +70,21 @@ static void	move_nodes(t_stack_node **a, t_stack_node **b)
 
 void	sort_stacks(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node	*small_node;
 	int	len_a;
-	
+
 	len_a = stack_len(*a);
 	if (len_a == 5)
 		sort_five(a, b);
 	else
 	{
-		while (len_a-- > 3) // revisar si resto len
+		while (len_a-- > 3)
 			pb(b, a, false);
 	}
 	sort_three(a);
 	while (*b)
 	{
-		init_nodes(*a, *b);
+		init_node(*a, *b);
 		move_nodes(a, b);
 	}
-	current_index(*a); 
-	small_node = find_small(*a);
-	if (small_node->above_median)
-		while (*a != small_node)
-			ra(a, false);
-	else
-		while (*a != small_node)
-			rra(a, false);
+	align_on_top(a);
 }
