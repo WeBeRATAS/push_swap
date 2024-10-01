@@ -12,6 +12,46 @@
 
 #include "../inc/push_swap.h"
 
+t_stack_node	*find_big(t_stack_node *stack)
+{
+	t_stack_node	*big_node;
+	long			max;
+
+	if (!stack)
+		return (NULL);
+	max = LONG_MIN;
+	while (stack)
+	{
+		if ((stack->num) > (max))
+		{
+			max = stack->num;
+			big_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (big_node);
+}
+
+t_stack_node	*find_small(t_stack_node *stack)
+{
+	long			min;
+	t_stack_node	*min_node;
+
+	if (!stack)
+		return (NULL);
+	min = LONG_MAX;
+	while (stack)
+	{
+		if (stack->num < min)
+		{
+			min = stack->num;
+			min_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (min_node);
+}
+
 void	sort_three(t_stack_node **a)
 {
 	t_stack_node	*biggest_node;

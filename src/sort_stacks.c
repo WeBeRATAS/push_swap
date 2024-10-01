@@ -87,7 +87,7 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 		init_nodes(*a, *b);
 		move_nodes(a, b);
 	}
-	current_index(*a);
+	current_index(*a); 
 	small_node = find_small(*a);
 	if (small_node->above_median)
 		while (*a != small_node)

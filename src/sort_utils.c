@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 19:40:28 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/30 19:47:49 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/10/01 12:41:00 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	current_index(t_stack_node *stack)
 		else
 			stack->above_median = false;
 		stack = stack->next;
-		i++;
+		++i;
 	}
 }
 

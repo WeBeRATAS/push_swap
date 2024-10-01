@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:36:17 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/29 18:44:18 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/10/01 12:55:18 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ void	add_node(t_stack_node **stack, int n)
 	new = malloc(sizeof(t_stack_node));
 	if (!new)
 		exit(EXIT_FAILURE);
-	new->num = n;
 	new->next = NULL;
+	new->num = n;
 	if (!(*stack))
 	{
 		*stack = new;

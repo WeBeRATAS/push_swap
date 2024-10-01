@@ -6,48 +6,43 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 20:05:09 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/29 22:42:34 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/10/01 13:17:02 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+static void reverse_rotate_stack(t_stack_node **stack)                            
+{
+	 t_stack_node    *last;
+	 if (*stack == NULL || stack == NULL)
+		 return ;
+	 last = ft_last_node(*stack);
+	 last->prev->next = NULL;
+	 last->next = *stack;
+	 last->prev = NULL;
+	 *stack = last;
+	 last->next->prev = last;
+}                       
+
 void	rra(t_stack_node **a, bool print)
 {
-	t_stack_node	*tmp;
-	t_stack_node	*last;
-
-	last = *a;
-	while (last->next->next)
-		last = last->next;
-	tmp = last->next;
-	last->next = NULL;
-	tmp->next = *a;
-	*a = tmp;
+	reverse_rotate_stack(a);
 	if (!print)
 		ft_putendl_fd("rra", 1);
 }
 
 void	rrb(t_stack_node **b, bool print)
 {
-	t_stack_node	*tmp;
-	t_stack_node	*last;
-
-	last = *b;
-	while (last->next->next)
-		last = last->next;
-	tmp = last->next;
-	last->next = NULL;
-	tmp->next = *b;
-	*b = tmp;
+	reverse_rotate_stack(b);
 	if (!print)
 		ft_putendl_fd("rrb", 1);
 }
 
 void	rrr(t_stack_node **a, t_stack_node **b, bool print)
 {
-	rra(a, false);
-	rrb(b, false);
+	reverse_rotate_stack(a);
+	reverse_rotate_stack(b);
 	if (!print)
 		ft_putendl_fd("rrr", 1);
 }
