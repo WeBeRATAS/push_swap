@@ -70,15 +70,15 @@ static void	move_nodes(t_stack_node **a, t_stack_node **b)
 
 void	sort_stacks(t_stack_node **a, t_stack_node **b)
 {
-	int	len_a;
 	t_stack_node	*small_node;
-
+	int	len_a;
+	
 	len_a = stack_len(*a);
 	if (len_a == 5)
 		sort_five(a, b);
 	else
 	{
-		while (len_a-- > 3)
+		while (len_a-- > 3) // revisar si resto len
 			pb(b, a, false);
 	}
 	sort_three(a);

@@ -35,27 +35,27 @@ void	current_index(t_stack_node *stack)
 
 static void	set_target_node(t_stack_node *a, t_stack_node *b)
 {
-	long		best_idx;
-	t_stack_node	*current_a;
-	t_stack_node	*target;
+	t_stack_node	*current_a_node;
+	t_stack_node	*pin_node;
+	long	best_idx;
 
 	while (b)
 	{
 		best_idx = LONG_MAX;
-		current_a = a;
-		while (current_a)
+		current_a_node = a;
+		while (current_a_node)
 		{
-			if (current_a->num > b->num && current_a->num < best_idx)
+			if (current_a_node->num > b->num && current_a_node->num < best_idx)
 			{
-				best_idx = current_a->num;
-				target = current_a;
+				best_idx = current_a_node->num;
+				pin_node = current_a_node;
 			}
-			current_a = current_a->next;
+			current_a_node = current_a_node->next;
 		}
 		if (best_idx == LONG_MAX)
 			b->target_node = find_small(a);
 		else
-			b->target_node = target;
+			b->target_node = pin_node;
 		b = b->next;
 	}
 }
@@ -71,11 +71,17 @@ void	set_cost(t_stack_node *a, t_stack_node *b)
 	{
 		b->push_cost = b->index;
 		if (!(b->above_median))
-			b->push_cost = len_b - (b->index);
-		if (b->target_node->above_median)
+		{
 			b->push_cost += b->target_node->index;
+			if (b->target_node->index > len_a / 2)
+				b->push_cost = len_a - (b->target_node->index);
+		}
 		else
-			b->push_cost += len_a - (b->target_node->index);
+		{
+			b->push_cost += len_b - b->index;
+				if (b->target_node->index > len_a / 2)
+					b->push_cost += len_a - (b->target_node->index);
+		}
 		b = b->next;
 	}
 }
