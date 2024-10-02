@@ -6,7 +6,7 @@
 #    By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/27 09:53:34 by rbuitrag          #+#    #+#              #
-#    Updated: 2024/09/29 21:02:19 by rbuitrag         ###   ########.fr        #
+#    Updated: 2024/10/02 13:42:14 by rbuitrag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -Iinc
 
 MODE = null
 HEADER = inc/push_swap.h

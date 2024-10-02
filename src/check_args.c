@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:32:49 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/25 12:42:19 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/10/02 13:27:14 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	check_args(int ac, char **av)
 	n = 0;
 	while (i < ac)
 	{
-		if (!av)
+		if (!av || !(av[i][0]))
 			put_error();
 		ft_isnum(av[i]);
 		n = ft_atol(av[i]);
